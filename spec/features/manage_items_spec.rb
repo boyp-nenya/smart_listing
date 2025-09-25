@@ -21,8 +21,8 @@ feature "Manage items" do
     fill_in "Email", with: "Email 2"
     click_on "Save"
 
-    expect(page).to have_content("Name 2")
-    expect(page).to_not have_content("Name 1")
+    expect(page).to have_field "Name", with: "Name 2"
+    expect(page).to_not have_field "Name", with: "Name 1"
   end
 
   scenario "Delete an item", js: true do
@@ -32,7 +32,7 @@ feature "Manage items" do
     find('.destroy').click
     within('.confirmation_box') { click_on "Yes" }
 
-    expect(page).to_not have_content("Name 1")
+    expect(page).to_not have_field "Name", with: "Name 1"
   end
 
   scenario "Use a custom action", js: true do

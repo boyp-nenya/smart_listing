@@ -14,19 +14,24 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", ">= 7.0"
+  s.add_dependency "rails", "~> 7.2"
   s.add_dependency "coffee-rails"
   s.add_dependency "kaminari", ">= 0.17"
   s.add_dependency "jquery-rails"
 
   s.add_development_dependency "bootstrap-sass"
 
-  s.add_development_dependency "sqlite3", "~> 1.4"
+  s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "guard-rspec"
   s.add_development_dependency "byebug"
 
-  s.add_development_dependency "capybara", "< 2.14"
-  s.add_development_dependency "capybara-webkit", "~> 1.14"
+  s.add_development_dependency "capybara"
+  s.add_development_dependency "selenium-webdriver"
+  s.add_development_dependency "puma"
   s.add_development_dependency "database_cleaner"
+  s.add_development_dependency "rails-ujs"
+  s.add_development_dependency "sprockets"
+  s.add_development_dependency "sprockets-rails"
+
 end

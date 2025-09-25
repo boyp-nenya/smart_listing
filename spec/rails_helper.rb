@@ -3,7 +3,10 @@ ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
 require File.expand_path("../dummy/config/environment", __FILE__)
 require 'rspec/rails'
+require 'capybara/rails'
+require 'capybara/rspec'
 require 'database_cleaner'
+require 'byebug'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -19,9 +22,15 @@ Dir[Rails.root.join("../support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+Capybara.default_driver = :selenium_chrome
+Capybara.server = :puma
+Capybara.server_port = ENV["CAPYBARA_SERVER_PORT"] || 3500
+Capybara.default_max_wait_time = 1.5
+Capybara.javascript_driver = :selenium_chrome
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/fixtures"
+  config.fixture_paths = ["#{::Rails.root}/fixtures"]
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
