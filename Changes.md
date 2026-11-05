@@ -1,3 +1,11 @@
+1.2.5
+-----------
+
+- Support Rails 7.2 and 8.x and update to latest gem versions
+- Convert smart_listing.coffee.erb to vanilla JS and drop the coffee-rails dependency
+- The shipped JavaScript is no longer compiled to ES5, so modern browsers are required
+- The asset pipeline integration still requires Sprockets (it does not work with Propshaft)
+
 1.2.3
 -----------
 

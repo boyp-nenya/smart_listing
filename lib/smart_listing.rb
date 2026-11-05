@@ -1,6 +1,7 @@
 require 'smart_listing/config'
 require "smart_listing/engine"
 require "kaminari"
+require "jquery-rails"
 
 # Fix parsing nested params
 module Kaminari

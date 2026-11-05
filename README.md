@@ -4,6 +4,13 @@ SmartListing helps creating AJAX-enabled lists of ActiveRecord collections or ar
 
 [See it in action](http://showcase.sology.eu/smart_listing)
 
+## Requirements
+
+- Rails >= 7.2 (Rails 8 is supported)
+- jQuery and `jquery_ujs` from the `jquery-rails` gem (SmartListing relies on `$.rails`)
+- A Sprockets-based asset pipeline (`sprockets-rails`). SmartListing ships its JavaScript as an `.erb` asset that is included with `//= require`, so it does not work with Propshaft (the default in newly generated Rails 8 apps) out of the box
+- A modern browser: the shipped JavaScript is no longer compiled to ES5 and uses ES2022 syntax (class fields)
+
 ## Installation
 
 Add to your Gemfile:
@@ -24,7 +31,7 @@ Also, you need to add SmartListing to your asset pipeline:
 //= require smart_listing
 ```
 
-__Rails >= 5.1 users__: Rails 5.1 has dropped jQuery dependency from the default stack in favour of `rails-ujs`. SmartListing still requires jQuery so make sure that you use `jquery_ujs` from `jquery-rails` gem and have following requires in your asset pipeline before `smart_listing`:
+__Rails >= 5.1 users__: Rails has dropped the jQuery dependency from the default stack in favour of `rails-ujs`. SmartListing still requires jQuery so make sure that you use `jquery_ujs` from `jquery-rails` gem and have following requires in your asset pipeline before `smart_listing`:
 ```
 //= require jquery
 //= require jquery_ujs
